@@ -8,7 +8,7 @@ export const Hero = () => {
     <div className="pb-20 pt-36">
       {/* Spotlight & BoxesCore */}
       <div>
-        <BoxesCore className=" pb-96 pt-0" />
+        <BoxesCore className="pt-96" />
         <Spotlight
           className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen "
           fill="white"
@@ -20,7 +20,7 @@ export const Hero = () => {
         <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
       </div>
       {/* backgroud setup */}
-      <div className="w-full h-screen bg-black-100">
+      <div className="w-auto h-auto bg-black-100">
         {/* Text Intro */}
         <div className="flex justify-center relative my-20 z-10">
           <div className="max-w-[89vw] md:max-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">

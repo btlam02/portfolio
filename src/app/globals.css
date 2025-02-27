@@ -2,4 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+#experience-section {
+  scroll-margin-top: -770px; /* Điều chỉnh khoảng cách so với đỉnh */
+}
+
 
