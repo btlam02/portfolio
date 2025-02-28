@@ -28,7 +28,7 @@ export const Hero = () => {
               Thanh-Lam Bui's blog
             </h2>
             <TextGenerateEffect 
-              words="Space for share my Experiences and Projects"
+              words="Space for share my Journey and Projects"
               />
             <p className="text-blue-100 text-center md:tracking-wider mb-4 lg:mt-5 text-sm md:text-lg lg:text-xl">Hi, I'm Thanh - Lam Bui, a Master's student at UIT, VNUHCM.</p>
           </div>

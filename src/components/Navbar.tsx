@@ -24,11 +24,11 @@ export function FloatingNavDemo() {
         ),
     },
     {
-      name: "My Experience",
+      name: "My Journey",
       link: "#", 
       icon: <IconMessage className="h-4 w-4 text-white" />,
       onClick: () => {
-        const section = document.getElementById("experience-section");
+        const section = document.getElementById("journey-section");
         if (section) {
           section.scrollIntoView({ behavior: "smooth", block: "nearest"});
         }
