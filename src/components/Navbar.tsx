@@ -57,6 +57,8 @@ export function FloatingNavDemo() {
           }, 500); // Chỉnh thời gian nếu cần (500ms)
         }
       }
+      
+
     },
 
   ];
@@ -73,84 +75,3 @@ const DummyContent = () => {
     </div>
   );
 };
-```javascript
-"use client";
-import React, { useEffect } from "react";
-import { useRouter } from "next/navigation"; 
-import { FloatingNav } from "@/components/ui/floating-navbar";
-import { usePathname } from "next/navigation"; 
-import { IconHome, IconMessage, IconUser, IconProgress } from "@tabler/icons-react";
-
-export function FloatingNavDemo() {
-  const router = useRouter(); 
-  const pathname = usePathname(); 
-
-  const navItems = [
-    {
-      name: "Home",
-      link: "/home",
-      icon: <IconHome className="h-4 w-4 text-white" />,
-      onClick: () => {
-        if (pathname === "/") {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        } else {
-          router.push("/");
-        }
-      },
-    },
-    {
-      name: "About me",
-      link: "/about",
-      icon: <IconUser className="h-4 w-4 text-white" />,
-    },
-    {
-      name: "Projects",
-      link: "/projects",
-      icon: <IconProgress className="h-4 w-4 text-white" />,
-    },
-    {
-      name: "My Journey",
-      link: "#", 
-      icon: <IconMessage className="h-4 w-4 text-white" />,
-      onClick: async () => {
-        if (pathname === "/") {
-          const section = document.getElementById("journey-section");
-          section?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        } else {
-          await router.push("/");
-          const newSection = document.getElementById("journey-section");
-          newSection?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
-      }
-    },
-  ];
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      if (pathname === "/") {
-        const section = document.getElementById("journey-section");
-        section?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [pathname, router.events]);
-
-  return (
-    <div className="relative  w-full">
-      <FloatingNav navItems={navItems} />
-      <DummyContent />
-    </div>
-  );
-}
-
-const DummyContent = () => {
-  return (
-    <div className="grid grid-cols-1 h-auto w-auto bg-black-100 rounded-md"> 
-      <div id="journey-section" className="h-screen">Journey Section</div>
-    </div>
-  );
-};
-```
